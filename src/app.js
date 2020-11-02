@@ -9,8 +9,7 @@ const repositories = [];
 app.use(express.json());
 app.use(cors());
 
-app.use('/repositories/:id', validateRepositoryId);
-app.use('/repositories/:id', validateRepositoryIndex);
+app.use('/repositories/:id', validateRepositoryId, validateRepositoryIndex);
 
 function validateRepositoryId(request, response, next) {
   const { id } = request.params;
